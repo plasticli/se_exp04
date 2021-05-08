@@ -1,0 +1,15 @@
+The program is going to be finished. Goodbye!~
+Please enter a positive integer in the range 1 to 100, representing the numbre of problems you want to do(0 for exit):
+Your input:
+is undesirable.
+The number you entered is too small.(Do you want to do it?)
+The number you entered is too big.(Need to do so much?)
+Congratulations! Your answer is right!
+Wrong Answer! The correct answer is:
+Please enter your answer:
+Results Statistics:
+The number of right answer(s) you did is:
+The number of wrong answer(s) you did is:
+The correct rate is:
+The answer you entered is:
+The correct answer is:
