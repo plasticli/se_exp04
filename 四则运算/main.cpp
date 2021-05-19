@@ -11,14 +11,14 @@
 *******************************************************************************/
 #include "Expression.h"
 #include "ExtendFunction.h"
-#include "LanguageResource.h"
+
 extern char *Resource[MAXLINE];
 int main(int argc, char *argv[])
 {
-	cout << "Arithmetic Test For Primary School Students" << endl << endl;
-	ShowLanguageList();
-	char language[200];//用户输入语言
-	gets_s(language);
+	cout << "Arithmetic Test For Primary School Students" << endl << endl;    //欢迎来到四则乐园
+	
+	char language[200];
+	language[200]="2.中文";
 	int validLangChoice = ScanLanguage(language);
 	while (1) {
 		if (validLangChoice == -1)//用户选择退出程序
