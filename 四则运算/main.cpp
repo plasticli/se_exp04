@@ -1,14 +1,13 @@
 /******************************************************************************
-ÎÄ¼þÃû£º main.cpp
-×÷Õß£ºÈÎ¶¹¶¹ ÀîÂÞÕý   ÈÕÆÚ£º2021/05/19
-ÃèÊö: Ö÷º¯Êý£¬ÊµÏÖÖ÷Ìå¹¦ÄÜ
+æ–‡ä»¶åï¼š main.cpp
+ä½œè€…ï¼šä»»è±†è±† æŽç½—æ­£   æ—¥æœŸï¼š2021/05/19
+æè¿°: ä¸»å‡½æ•°ï¼Œå®žçŽ°ä¸»ä½“åŠŸèƒ½
 
-×÷Õß£ºÈÎ¶¹¶¹ ÀîÂÞÕý   ÈÕÆÚ£º2021/05/19
-¸üÐÂ£ºÓÃ×ÊÔ´ÎÄ¼þ¹ÜÀí¶àÓïÑÔ°æ±¾£¬°ÑÓïÑÔÐ´µ½×ÊÔ´ÖÐ¶ø²»ÊÇ´úÂëÖÐ£¬¹Ê¶ÔÔ­ÓÐ´úÂë½øÐÐÖØ¹¹
-×¢£º¹ØÓÚResource[i]ÖÐµÄÄÚÈÝÇë×¢ÒâÍ·ÎÄ¼þLanguageResource.hÄÚµÄ×¢ÊÍËµÃ÷
+ä½œè€…ï¼šä»»è±†è±† æŽç½—æ­£   æ—¥æœŸï¼š2021/05/19
 
-×÷Õß£ºÈÎ¶¹¶¹ ÀîÂÞÕý   ÈÕÆÚ£º2021/05/19
-¸üÐÂ£ºÃüÁîÐÐ°æ±¾¡£
+
+ä½œè€…ï¼šä»»è±†è±† æŽç½—æ­£   æ—¥æœŸï¼š2021/05/19
+æ›´æ–°ï¼šå‘½ä»¤è¡Œç‰ˆæœ¬ã€‚
 *******************************************************************************/
 #include "Expression.h"
 #include "ExtendFunction.h"
@@ -18,46 +17,46 @@ int main(int argc, char *argv[])
 {
 	cout << "Arithmetic Test For Primary School Students" << endl << endl;
 	ShowLanguageList();
-	char language[200];//ÓÃ»§ÊäÈëÓïÑÔ
+	char language[200];//ç”¨æˆ·è¾“å…¥è¯­è¨€
 	gets_s(language);
 	int validLangChoice = ScanLanguage(language);
 	while (1) {
-		if (validLangChoice == -1)//ÓÃ»§Ñ¡ÔñÍË³ö³ÌÐò
+		if (validLangChoice == -1)//ç”¨æˆ·é€‰æ‹©é€€å‡ºç¨‹åº
 		{
 			return 0;
 		}
-		else if (validLangChoice == -2)//ÓÃ»§ÊäÈëÓÐÎó²¢Ñ¡ÔñÖØÐÂÊäÈë
+		else if (validLangChoice == -2)//ç”¨æˆ·è¾“å…¥æœ‰è¯¯å¹¶é€‰æ‹©é‡æ–°è¾“å…¥
 		{
 			gets_s(language);
 			validLangChoice = ScanLanguage(language);
 		}
-		else if (validLangChoice == 1)//ÓÃ»§ÊäÈëµÄÓïÑÔÕýÈ·
+		else if (validLangChoice == 1)//ç”¨æˆ·è¾“å…¥çš„è¯­è¨€æ­£ç¡®
 		{
 			break;
 		}
 	}
 
-	char Langpath[255] = "";//¸ù¾ÝÓÃ»§µÄÊäÈëÈ¥ÐÎ³ÉÒ»¸öÂ·¾¶
+	char Langpath[255] = "";//æ ¹æ®ç”¨æˆ·çš„è¾“å…¥åŽ»å½¢æˆä¸€ä¸ªè·¯å¾„
 	strcat_s(Langpath, "LangResourses\\");
 	strcat_s(Langpath, language);
 	strcat_s(Langpath, ".txt");
 
 	GetResource(Langpath);
 
-	int n;//ÓÃ»§ÊäÈëÏë×öµÄÌâÄ¿ÊýÁ¿
+	int n;//ç”¨æˆ·è¾“å…¥æƒ³åšçš„é¢˜ç›®æ•°é‡
 
-	n = ScanNumofProblems();  //±ê×¼ÊäÈë
-	//n = ReadFile(argv[1]);      //ÎÄ¼þÊäÈë
+	n = ScanNumofProblems();  //æ ‡å‡†è¾“å…¥
+	//n = ReadFile(argv[1]);      //æ–‡ä»¶è¾“å…¥
 
 	int i;
-	bool result;//ÓÃÓÚ²âÊÔ´ð°¸ÕýÈ·Óë·ñ
+	bool result;//ç”¨äºŽæµ‹è¯•ç­”æ¡ˆæ­£ç¡®ä¸Žå¦
 
-	int answer;//ÓÃ»§ÊäÈëÌâÄ¿´ð°¸
-	static int numRight = 0, numWrong = 0;//Í³¼Æ×ÜÌâÊý¡¢ÕýÈ·ºÍ´íÎóÌâÊý
+	int answer;//ç”¨æˆ·è¾“å…¥é¢˜ç›®ç­”æ¡ˆ
+	static int numRight = 0, numWrong = 0;//ç»Ÿè®¡æ€»é¢˜æ•°ã€æ­£ç¡®å’Œé”™è¯¯é¢˜æ•°
 
 	for (i = 1; i <= n; i++)
 	{
-		Expression expression; //ÌâÄ¿
+		Expression expression; //é¢˜ç›®
 		expression = CreateProblems();
 
 		cout << "No." << i << "\t" << expression << endl;
@@ -75,12 +74,12 @@ int main(int argc, char *argv[])
 		{
 			numWrong++;
 		}
-		//WriteExpression(argv[2], expression, answer, expression.ExpressionValue(), i);//Êä³öµ½ÎÄ¼þ
+		//WriteExpression(argv[2], expression, answer, expression.ExpressionValue(), i);//è¾“å‡ºåˆ°æ–‡ä»¶
 		expression.~Expression();
 	}
 
-	Print(n, numRight, numWrong);   //±ê×¼Êä³ö
-	//WriteResult(argv[2], n, numRight, numWrong);//Êä³öµ½ÎÄ¼þ
+	Print(n, numRight, numWrong);   //æ ‡å‡†è¾“å‡º
+	//WriteResult(argv[2], n, numRight, numWrong);//è¾“å‡ºåˆ°æ–‡ä»¶
 
 	cout << endl << Resource[0] << endl;
 
