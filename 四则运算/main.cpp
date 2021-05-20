@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 	cout << "Arithmetic Test For Primary School Students" << endl << endl;    //欢迎来到四则乐园
 	
 	char language[200];
-	language[200]="2.中文";
+	gets_s(language);
 	int validLangChoice = ScanLanguage(language);
 	while (1) {
 		if (validLangChoice == -1)//用户选择退出程序
